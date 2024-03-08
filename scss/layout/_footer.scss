@@ -1,21 +1,29 @@
-@use '../abstract' as *;
+@use "../abstract" as *;
+
 
 .footer {
-    background-color: $clr-primary;
     padding: 5rem 0;
-    &_actions {
+    &__wrapper {
+        @include mediaQuery {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    &__actions {
         margin-bottom: 4rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
+       @include grid(2);
+       @include mediaQuery {
+        @include grid(4);
+       }
         ul {
             list-style: none;
             li {
-                font-size: 1.3rem;
+             font-size: 1.2rem;   
             }
+
             li img {
                 width: 80%;
-                margin-bottom: .9rem;
+                margin-bottom: .5rem;
             }
         }
 
@@ -24,10 +32,11 @@
         }
     }
 
-    &_connect {
+
+
+    &__connect {
         ul {
             list-style: none;
-            display: flex;
             gap: 3rem;
             i {
                 font-size: 2.5rem;
@@ -35,4 +44,6 @@
             }
         }
     }
+
+  
 }
